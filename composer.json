@@ -1,5 +1,6 @@
 {
     "name": "pavlikm/cache-html-part",
+    "version": "1.0.0",
     "description": "cache part of html in browser",
     "type": "cache, html",
     "authors": [
