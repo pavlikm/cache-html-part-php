@@ -1,12 +1,9 @@
 <?php
-
+namespace pavlikm;
 use Composer\InstalledVersions;
 
 class CacheHtmlPart
 {
-
-    const START_TAG = '<!-- static -->';
-    const END_TAG = '<!-- static-end -->';
 
     /**
      * @param string $output
@@ -14,7 +11,9 @@ class CacheHtmlPart
      */
     public static function render(string $output)
     {
-        if (substr(self::START_TAG, $output) && substr(self::END_TAG, $output)) {
+        $startTag = '<!-- static -->';
+        $endTag = '<!-- static-end -->';
+        if (substr($startTag, $output) && substr($endTag, $output)) {
             $stashed = $_COOKIE['static'] ? explode(",", $_COOKIE['static']) : [];
             $version = InstalledVersions::getPrettyVersion('pavlikm/cache-html-part');
             preg_match_all("/<!-- static -->([\s\S]*?)<!-- static-end -->/mi", $output, $matchAll);
@@ -30,7 +29,7 @@ class CacheHtmlPart
                         $replace .= '<static ref="' . $hash . '"></static>';
                     } else {
                         $needStashScript = true;
-                        $replace = "<!-- static " . $hash . " -->" . $withoutTag . self::END_TAG;
+                        $replace = "<!-- static " . $hash . " -->" . $withoutTag . $endTag;
                     }
                     if ($i === count($matchAll[0]) - 1) {
                         $script = "/* cache-html-part " . $version . "*/";
