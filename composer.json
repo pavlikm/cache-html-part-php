@@ -1,0 +1,12 @@
+{
+    "name": "pavlikm/cache-html-part",
+    "description": "cache part of html in browser",
+    "type": "cache, html",
+    "authors": [
+        {
+            "name": "Michal Pavlik",
+            "email": "michalpavlik1@gmail.com"
+        }
+    ],
+    "require": {}
+}
