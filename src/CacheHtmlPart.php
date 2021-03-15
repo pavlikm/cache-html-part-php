@@ -34,10 +34,10 @@ class CacheHtmlPart
                     if ($i === count($matchAll[0]) - 1) {
                         $script = "/* cache-html-part " . $version . "*/";
                         if ($needStashScript) {
-                            $script .= file_get_contents(__DIR__ . '/browser/stash-minified.js');
+                            $script .= file_get_contents(__DIR__ . '/stash-minified.js');
                         }
                         if ($needUnstashScript) {
-                            $script .= file_get_contents(__DIR__ . '/browser/unstash-minified.js');
+                            $script .= file_get_contents(__DIR__ . '/unstash-minified.js');
                         }
                         $replace .= '<script>' . $script . '</script>';
                     }

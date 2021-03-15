@@ -10,5 +10,10 @@
             "email": "michalpavlik1@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "pavlikm\\": "src/"
+        }
+    },
     "require": {}
 }
