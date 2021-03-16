@@ -13,12 +13,11 @@ class CacheHtmlPart
     {
         $startTag = '<!-- static -->';
         $endTag = '<!-- static-end -->';
-        if (strpos($output, $startTag) && strpos($output, $endTag)) {
+        if (strpos($output, $startTag) > -1 && strpos($output, $endTag)  > -1) {
             $stashed = isset($_COOKIE['static']) ? explode(",", $_COOKIE['static']) : [];
             $version = '1.0.0'; //InstalledVersions::getPrettyVersion('pavlikm/cache-html-part');
             preg_match_all("/<!-- static -->([\s\S]*?)<!-- static-end -->/mi", $output, $matchAll);
             if ($matchAll) {
-                \CoreObject::var_dump($matchAll);
                 for ($i = 0; $i < count($matchAll[0]); $i++) {
                     $withTag = $matchAll[0][$i];
                     $withoutTag = $matchAll[1][$i];
